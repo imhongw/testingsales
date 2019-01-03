@@ -1,239 +1,36 @@
-<div id='product-component-76fd141ff12'></div>
-    <script type="text/javascript">
-    /*<![CDATA[*/
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
 
-    (function () {
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-      if (window.ShopifyBuy) {
-        if (window.ShopifyBuy.UI) {
-          ShopifyBuyInit();
-        } else {
-          loadScript();
-        }
-      } else {
-        loadScript();
-      }
+<!-- Create a button that your customers click to complete their purchase. -->
+<button id="checkout-button">Pay</button>
+<div id="error-message"></div>
 
-      function loadScript() {
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-        script.onload = ShopifyBuyInit;
-      }
+<script>
+  var stripe = Stripe('pk_live_uJk0kAbB2aWlvdv4hLZyVvBw', {
+    betas: ['checkout_beta_4']
+  });
 
-      function ShopifyBuyInit() {
-        var client = ShopifyBuy.buildClient({
-          domain: 'uncle-lims-snowbear-store.myshopify.com',
-          storefrontAccessToken: '9cc7968b9735f9982d9c5765b77faf6d',
-        });
+  var checkoutButton = document.getElementById('checkout-button');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{sku: 'sku_EGv9aByBRR7DZw', quantity: 10},{sku: 'sku_EGvAZLFX70mT5p', quantity: 10},{sku: 'sku_EGvAkw2evEQGE7', quantity: 10},
+             {sku: 'sku_EGvBgTIO8UIJzZ', quantity: 10},{sku: 'sku_EGv75ZHFdahYKK', quantity: 10},{sku: 'sku_EGv6VCPJV821aE', quantity: 10}],
 
-        ShopifyBuy.UI.onReady(client).then(function (ui) {
-          ui.createComponent('product', {
-            id: [1986149744740],
-            node: document.getElementById('product-component-76fd141ff12'),
-            moneyFormat: '%24%7B%7Bamount%7D%7D',
-            options: {
-  "product": {
-    "layout": "horizontal",
-    "variantId": "all",
-    "width": "100%",
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "variantTitle": false,
-      "description": true,
-      "buttonWithQuantity": true,
-      "button": false,
-      "quantity": false
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "background-color": "#59d0f5",
-        "font-family": "Gill Sans, sans-serif",
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px",
-        "padding-left": "20px",
-        "padding-right": "20px",
-        ":hover": {
-          "background-color": "#50bbdd"
-        },
-        "border-radius": "30px",
-        ":focus": {
-          "background-color": "#50bbdd"
-        },
-        "font-weight": "normal"
-      },
-      "variantTitle": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "title": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal",
-        "font-size": "26px"
-      },
-      "description": {
-        "font-size": "16px",
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "price": {
-        "font-family": "Garamond, serif",
-        "font-size": "18px",
-        "font-weight": "normal"
-      },
-      "quantityInput": {
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px"
-      },
-      "compareAt": {
-        "font-size": "15px",
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: window.location.protocol + '//www.justcoglobal.com/success',
+      cancelUrl: window.location.protocol + '//www.justcoglobal.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
       }
-    }
-  },
-  "cart": {
-    "contents": {
-      "button": true
-    },
-    "text": {
-      "notice": ""
-    },
-    "styles": {
-      "button": {
-        "background-color": "#59d0f5",
-        "font-family": "Gill Sans, sans-serif",
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px",
-        ":hover": {
-          "background-color": "#50bbdd"
-        },
-        "border-radius": "30px",
-        ":focus": {
-          "background-color": "#50bbdd"
-        },
-        "font-weight": "normal"
-      },
-      "footer": {
-        "background-color": "#ffffff"
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "variantTitle": false,
-      "buttonWithQuantity": true,
-      "button": false,
-      "quantity": false
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "background-color": "#59d0f5",
-        "font-family": "Gill Sans, sans-serif",
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px",
-        "padding-left": "20px",
-        "padding-right": "20px",
-        ":hover": {
-          "background-color": "#50bbdd"
-        },
-        "border-radius": "30px",
-        ":focus": {
-          "background-color": "#50bbdd"
-        },
-        "font-weight": "normal"
-      },
-      "variantTitle": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "title": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "description": {
-        "font-size": "16px",
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "price": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "quantityInput": {
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px"
-      },
-      "compareAt": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      }
-    }
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Gill Sans, sans-serif",
-        "background-color": "#59d0f5",
-        ":hover": {
-          "background-color": "#50bbdd"
-        },
-        ":focus": {
-          "background-color": "#50bbdd"
-        },
-        "font-weight": "normal"
-      },
-      "count": {
-        "font-size": "18px"
-      }
-    }
-  },
-  "option": {
-    "styles": {
-      "label": {
-        "font-family": "Garamond, serif"
-      },
-      "select": {
-        "font-family": "Garamond, serif"
-      }
-    }
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  }
-}
-          });
-        });
-      }
-    })();
-    /*]]>*/
-    </script>
+    });
+  });
+</script>
