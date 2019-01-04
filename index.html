@@ -1,7 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div id='product-component-5add3003396'></div>
+<div id='product-component-a50610006be'></div>
     <script type="text/javascript">
     /*<![CDATA[*/
+
     (function () {
       var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
       if (window.ShopifyBuy) {
@@ -24,14 +25,14 @@
 
       function ShopifyBuyInit() {
         var client = ShopifyBuy.buildClient({
-          domain: 'uncle-lims-snowbear-store.myshopify.com',
-          storefrontAccessToken: '9cc7968b9735f9982d9c5765b77faf6d',
+          domain: 'justcoglobal.myshopify.com',
+          storefrontAccessToken: '2591d7d550c8e3cb99493c12df416891',
         });
 
         ShopifyBuy.UI.onReady(client).then(function (ui) {
           ui.createComponent('product', {
-            id: [1986149744740],
-            node: document.getElementById('product-component-5add3003396'),
+            id: [2118063063140],
+            node: document.getElementById('product-component-a50610006be'),
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: {
   "product": {
@@ -43,7 +44,8 @@
       "imgWithCarousel": true,
       "variantTitle": false,
       "description": true,
-      "buttonWithQuantity": false,
+      "buttonWithQuantity": true,
+      "button": false,
       "quantity": false
     },
     "styles": {
@@ -55,50 +57,25 @@
         }
       },
       "button": {
-        "background-color": "#59d0f5",
+        "background-color": "#3fa6ce",
         "font-family": "Gill Sans, sans-serif",
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px",
-        "padding-left": "20px",
-        "padding-right": "20px",
         ":hover": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         "border-radius": "30px",
         ":focus": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         "font-weight": "normal"
       },
-      "variantTitle": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
       "title": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal",
         "font-size": "26px"
       },
-      "description": {
-        "font-size": "16px",
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
       "price": {
-        "font-family": "Garamond, serif",
-        "font-size": "18px",
-        "font-weight": "normal"
-      },
-      "quantityInput": {
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px"
+        "font-size": "18px"
       },
       "compareAt": {
-        "font-size": "15px",
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
+        "font-size": "15px"
       }
     }
   },
@@ -107,21 +84,18 @@
       "button": true
     },
     "text": {
-      "notice": ""
+      "notice": "Queuing and delivery costs are included in the final price"
     },
     "styles": {
       "button": {
-        "background-color": "#59d0f5",
+        "background-color": "#3fa6ce",
         "font-family": "Gill Sans, sans-serif",
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px",
         ":hover": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         "border-radius": "30px",
         ":focus": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         "font-weight": "normal"
       },
@@ -148,46 +122,15 @@
         }
       },
       "button": {
-        "background-color": "#59d0f5",
+        "background-color": "#3fa6ce",
         "font-family": "Gill Sans, sans-serif",
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px",
-        "padding-left": "20px",
-        "padding-right": "20px",
         ":hover": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         "border-radius": "30px",
         ":focus": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
-        "font-weight": "normal"
-      },
-      "variantTitle": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "title": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "description": {
-        "font-size": "16px",
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "price": {
-        "font-family": "Garamond, serif",
-        "font-weight": "normal"
-      },
-      "quantityInput": {
-        "font-size": "18px",
-        "padding-top": "17px",
-        "padding-bottom": "17px"
-      },
-      "compareAt": {
-        "font-family": "Garamond, serif",
         "font-weight": "normal"
       }
     }
@@ -196,27 +139,14 @@
     "styles": {
       "toggle": {
         "font-family": "Gill Sans, sans-serif",
-        "background-color": "#59d0f5",
+        "background-color": "#3fa6ce",
         ":hover": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         ":focus": {
-          "background-color": "#50bbdd"
+          "background-color": "#3995b9"
         },
         "font-weight": "normal"
-      },
-      "count": {
-        "font-size": "18px"
-      }
-    }
-  },
-  "option": {
-    "styles": {
-      "label": {
-        "font-family": "Garamond, serif"
-      },
-      "select": {
-        "font-family": "Garamond, serif"
       }
     }
   },
