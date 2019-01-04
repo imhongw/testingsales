@@ -1,4 +1,4 @@
-<div id='product-component-d72331df2eb'></div>
+<div id='product-component-5add3003396'></div>
     <script type="text/javascript">
     /*<![CDATA[*/
 
@@ -31,18 +31,19 @@
         ShopifyBuy.UI.onReady(client).then(function (ui) {
           ui.createComponent('product', {
             id: [1986149744740],
-            node: document.getElementById('product-component-d72331df2eb'),
+            node: document.getElementById('product-component-5add3003396'),
             moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: {
   "product": {
+    "layout": "horizontal",
     "variantId": "all",
-    "width": "240px",
+    "width": "100%",
     "contents": {
-      "imgWithCarousel": false,
+      "img": false,
+      "imgWithCarousel": true,
       "variantTitle": false,
-      "description": false,
-      "buttonWithQuantity": true,
-      "button": false,
+      "description": true,
+      "buttonWithQuantity": false,
       "quantity": false
     },
     "styles": {
@@ -76,7 +77,8 @@
       },
       "title": {
         "font-family": "Garamond, serif",
-        "font-weight": "normal"
+        "font-weight": "normal",
+        "font-size": "26px"
       },
       "description": {
         "font-size": "16px",
@@ -85,6 +87,7 @@
       },
       "price": {
         "font-family": "Garamond, serif",
+        "font-size": "18px",
         "font-weight": "normal"
       },
       "quantityInput": {
@@ -93,7 +96,7 @@
         "padding-bottom": "17px"
       },
       "compareAt": {
-        "font-size": "12px",
+        "font-size": "15px",
         "font-family": "Garamond, serif",
         "font-weight": "normal"
       }
